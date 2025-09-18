@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barbie-Themed Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink:#ff66b3;          
+      --pink-dark:#ff2e9c;
+      --pink-soft:#ffd1e6;
+      --rose:#ff94c2;
+      --accent:#7a1b5d;        
+      --text:#3a2a35;
+      --bg:#fff8fc;
+      --card:#ffffff;
+      --shadow: 0 8px 30px rgba(255,46,156,.15);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Barlow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 15% -5%, var(--pink-soft), transparent),
+                  radial-gradient(1000px 600px at 100% 0%, #ffe6f3, transparent),
+                  var(--bg);
+    }
+
+    .page{
+      max-width: 980px;
+      margin: 32px auto 48px;
+      padding: 28px;
+    }
+
+    .card{
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 2px solid var(--pink-soft);
+    }
+
+    .hero{
+      position: relative;
+      padding: 36px 28px 28px;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--rose) 40%, #ffc5e3 100%);
+      color: #fff;
+      isolation: isolate;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(180px 80px at 15% 30%, rgba(255,255,255,.5), transparent 60%),
+        radial-gradient(280px 120px at 85% 20%, rgba(255,255,255,.35), transparent 60%),
+        radial-gradient(200px 90px at 60% 80%, rgba(255,255,255,.25), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events:none;
+      z-index:0;
+    }
+    .hero-inner{display:flex; gap:24px; align-items:center; position:relative; z-index:1}
+    .avatar, img{
+      width: 120px; height: 140px; border-radius: 24px; flex: 0 0 120px;
+      background: #fff; display:grid; place-items:center; font-size:48px;
+      color: var(--pink-dark); border:3px solid #fff; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+    .title{
+      line-height:1.05; margin:0;
+      font-family: "Playfair Display", Georgia, serif; font-weight:800; font-size: clamp(28px, 5vw, 44px);
+      letter-spacing:.3px;
+      text-shadow: 0 2px 0 rgba(0,0,0,.08);
+    }
+    .subtitle{margin:8px 0 0; font-weight:600; opacity:.95; font-size: clamp(16px, 2.5vw, 20px)}
+    .hero-tags{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px}
+    .chip{
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.6);
+      padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight:700;
+      text-transform: uppercase; letter-spacing:.8px;
+    }
+
+    .contact{
+      display:flex; flex-wrap:wrap; gap:12px 20px; margin-top:14px; font-weight:600;
+    }
+    .contact a{color:#fff; text-decoration:none; border-bottom:2px solid transparent}
+    .contact a:focus, .contact a:hover{border-color:#fff}
+
+    .content{display:grid; grid-template-columns: 1.2fr .9fr; gap:24px; padding:24px}
+    @media (max-width: 880px){
+      .content{grid-template-columns: 1fr}
+    }
+
+    section{background:#fff; border:1.5px solid var(--pink-soft); border-radius:20px; padding:18px 18px 8px}
+    section + section{margin-top:16px}
+    h2{margin:0 0 10px; font-size:18px; letter-spacing:.4px; color:var(--accent); text-transform:uppercase}
+
+    .para{margin:0 0 12px; line-height:1.7}
+
+    .pill-list{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{padding:8px 10px; background:linear-gradient(180deg, #fff, #ffe9f4); border:1px solid var(--pink-soft); border-radius:999px; font-weight:600; font-size:13px}
+
+    .item{display:grid; grid-template-columns: 1fr auto; gap:6px 12px; padding:12px 0; border-top:1px dashed #f6bedd}
+    .item:first-child{border-top:none}
+    .item h3{margin:0; font-size:16px}
+    .item .meta{font-weight:700; color:var(--pink-dark)}
+    .item .sub{opacity:.9}
+    .bullets{margin:6px 0 0 18px}
+    .bullets li{margin:6px 0}
+
+    .side section{padding-bottom:14px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background: var(--pink-soft); border:1px solid #ffc5e3; padding:8px 12px; border-radius:12px;
+      font-weight:700
+    }
+
+    .actions{display:flex; gap:10px; padding:0 24px 24px}
+    .btn{cursor:pointer; border:none; font-weight:800; letter-spacing:.4px; text-transform:uppercase; padding:10px 14px; border-radius:12px}
+    .btn-primary{background: var(--pink-dark); color:#fff; box-shadow: var(--shadow)}
+    .btn-ghost{background:#fff; color:var(--pink-dark); border:2px solid var(--pink-dark)}
+
+    @media print{
+      body{background:#fff}
+      .page{margin:0; padding:0}
+      .actions{display:none}
+      .card{box-shadow:none; border:none; border-radius:0}
+      .content{gap:16px; padding:16px}
+      section{break-inside: avoid}
+    }
+
+    .sparkles{position:absolute; right:18px; top:18px; font-size:22px}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <header class="hero" role="banner">
+        <div class="sparkles" aria-hidden="true">✨💖✨</div>
+        <div class="hero-inner">
+          <div class="avatar"><img src="masarap.jpg" alt="Bakla"></div>
+          <div>
+            <h1 class="title">Jhon Louel C. Enriquez</h1>
+            <p class="subtitle">Editor • Caloocan City</p>
+            <div class="hero-tags">
+              <span class="chip">#BarbieCore</span>
+              <span class="chip">#Tore</span>
+              <span class="chip">#LadyBoy</span>
+            </div>
+            <p class="contact">
+              <a href="ejhonlouel@email.com">ejhonlouel@gmail.com</a>
+              <span>•</span>
+              <a href="tel:+63-906-141-7174">+63 906 141 7174</a>
+              <span>•</span>
+              <a href="https://www.facebook.com/jhonlouel.cenriquez" target="_blank" rel="noopener">Facebook</a>
+              <span>•</span>
+              <a href="https://www.instagram.com/jhonlouel69?igsh=MXI1YmJobXp3YTQ0bA==" target="_blank" rel="noopener">Instagram</a>
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div class="actions" aria-hidden="false">
+        <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+        <button class="btn btn-ghost" onclick="toggleChips()">Toggle Hashtags</button>
+      </div>
+
+      <main class="content" role="main">
+        <div class="main">
+          <section aria-label="Profile Summary">
+            <h2>About Me</h2>
+            <p class="para"> have a basic understanding of photo and video editing, with experience using tools like Blender, Canva, CapCut, motion Ninja or Picsart. I enjoy enhancing images, applying filters, and making simple adjustments like cropping, color correction, and adding text.
+In video editing, I can cut and trim clips, add transitions, overlay text, and include background music to create engaging content. While I’m still learning, I’m passionate about improving my skills and exploring more advanced editing techniques.</p>
+          </section>
+
+          <section aria-label="Professional Experience">
+            <h2>Experience</h2>
+            <div class="item">
+              <div>
+                <h3>Photo Editing • Photo And Video Editor</h3>
+                <div class="sub">Built dazzling interfaces and optimized performance for e‑commerce clients.</div>
+                <ul class="bullets">
+                  <li>Short Film Editing Experience.</li>
+                  <li>Audio-Visual Synchronization.</li>
+                  <li>Creative Thinking – Experimenting with new styles and techniques</li>
+                </ul>
+              </div>
+              <div class="meta">Jan 2024 – Present</div>
+            </div>
+
+            <div class="item">
+              <div>
+                <h3>Editor • Manipulation</h3>
+                <div class="sub">Skilled in editing content for clarity and accuracy, with experience in manipulation techniques to enhance presentation and impact.</div>
+                <ul class="bullets">
+                  <li>Experienced in content editing and manipulation to ensure accuracy, clarity, and improved visual or written presentation.</li>
+                  <li>Proficient in editing and manipulation, enhancing materials to achieve professional quality and effective communication.</li>
+                </ul>
+              </div>
+              <div class="meta">Jun 2023 – Dec 2023</div>
+            </div>
+          </section>
+
+          <section aria-label="Projects">
+            <h2>Projects</h2>
+            <div class="item">
+              <div>
+                <h3>Dreamhouse Dashboard</h3>
+                <div class="sub">A React dashboard with role‑based access and charts.</div>
+                <ul class="bullets">
+                  <li>Implemented authentication and protected in Editing.</li>
+                  <li>Integrated REST APIs and local caching for snappy UX.</li>
+                </ul>
+              </div>
+              <div class="meta"><a href="#" target="_blank" rel="noopener"></a></div>
+            </div>
+            <div class="item">
+              <div>
+                <h3>Barbie Themed Favorite ko</h3>
+                <div class="sub">Cute portfolio site themed with Barbie‑core aesthetics.</div>
+                <ul class="bullets">
+                  <li>Optimized Lighthouse scores to 95+ across the board.</li>
+                </ul>
+              </div>
+              <div class="meta"><a href="#" target="_blank" rel="noopener"></a></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side">
+          <section aria-label="Skills">
+            <h2>Skills</h2>
+            <div class="pill-list">
+              <span class="pill">HTML</span>
+              <span class="pill">CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">Photo Editing</span>
+              <span class="pill">Photo Manipulation</span>
+              <span class="pill">Video Editing</span>
+              <span class="pill">GitHub</span>
+            </div>
+          </section>
+
+          <section aria-label="Education">
+            <h2>Education</h2>
+            <div class="item">
+              <div>
+                <h3>BS in Information Technology</h3>
+                <div class="sub">Global Reciprocal Colleges</div>
+              </div>
+              <div class="meta">2023 – 2025</div>
+            </div>
+          </section>
+
+          <section aria-label="Awards & Certifications">
+            <h2>Awards & Certs</h2>
+            <p class="badge">🏆 Short Film Best Message Award</p>
+            <p class="badge">📜 Outstanding Award and Message Certificate </p>
+          </section>
+
+          <section aria-label="Interests">
+            <h2>Interests</h2>
+            <p class="para">🎀 Editing, 📸 mobile photography, 🎮 cozy games, 🧁 Dancing.</p>
+          </section>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function toggleChips(){
+      document.querySelectorAll('.chip').forEach(c => c.style.display = c.style.display === 'none' ? '' : 'none');
+    }
+  </script>
+</body>
+</html>
